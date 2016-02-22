@@ -1,0 +1,51 @@
+<ion-view style="background: #f7f7f7">
+    <div class="bar bar-header item-button-left bar-stable">
+        <a href="#/tab/index" class="button button-small ion-chevron-left button"></a>
+        <h1 class="title">个人中心</h1>
+    </div>
+    <div class="scroll-content has-footer has-header index-content">
+        <div class="list list-borderless assertive-bg padding-vertical">
+            <div class="item item-image item-assertive ">
+                <img src="resources/assets/img/person.png" style="width: 20%">
+            </div>
+            <div class="item item-assertive text-center" style="font-size: 0.8rem">
+                {{user.username}} {{user.tel}}
+            </div>
+        </div>
+        <div class="list list-borderless">
+            <a href="#/tab/orderList" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-clipboard assertive"></i>
+                我的订单
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+            <a href="#/tab/cart" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-ios-cart-outline assertive"></i>
+                我的购物车
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+            <a href="#/tab/addrList" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-model-s assertive"></i>
+                收货地址
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+            <a href="#/tab/userinfo" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-ios-person-outline assertive"></i>
+                个人资料
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+            <a href="#/tab/password" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-ios-locked-outline assertive"></i>
+                修改密码
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+            <a href="" class="item item-icon-left item-icon-right " style="margin-top: 10px">
+                <i class="icon ion-ios-telephone-outline assertive"></i>
+                售后服务
+                <i class="ion-ios-arrow-right icon"></i>
+            </a>
+        </div>
+        <div class="bar button-bar">
+            <button class="button button-assertive" ng-click="logout()">退出登录</button>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view>
+    <a href="#/tab/index" class="button button-light button-small ion-chevron-left" style="position: absolute; z-index: 999; left: 10px; top: 10px; opacity: 0.8; border-radius: 100px"></a>
+    <div class="scroll-content has-footer index-content">
+        <ion-slide-box does-continue="true" auto-play="true" slide-interval="1000" ng-if="product.imgs|explode:'|'.length">
+            <ion-slide ng-repeat="item in product.imgs|explode:'|' track by $index">
+                <img ng-src="upload/{{item}}" class="banner-img">
+            </ion-slide>
+        </ion-slide-box>
+        <div class="list list-borderless" style="background: #f7f7f7; ">
+            <div class="item item-text-wrap row-no-padding padding-horizontal" style="padding-bottom: 10px">
+                <p class="title" style="color: #000; font-size: 0.9rem; font-weight: bold">{{product.title}}</p>
+                <div class="item-content">
+                    <p style="font-size: 0.7rem">{{product.description}}</p>
+                </div>
+                <p class="text-center my-item-price" style="margin-top: 10px">￥<span>{{product.price}}</span>元</p>
+                <div class="button-bar" style="width: 80%; margin: 10px auto 0 auto;">
+                    <button class="button button-small button-assertive">立即购买</button>
+                    <button class="button button-small button-energized" ng-click="showPutIntoCart()">加入购物车</button>
+                </div>
+            </div>
+            <div class="item item-text-wrap row-no-padding padding-horizontal" style="margin-top: 10px">
+                <div class="button-bar" style="border-bottom: 1px solid #dedede">
+                    <button class="button button-small button-light" ng-class="{'product-content-on':isInfo}" ng-click="showPartial('info')">图文详情</button>
+                    <button class="button button-small button-light" ng-class="{'product-content-on':isComment}" ng-click="showPartial('comment')">宝贝评价</button>
+                </div>
+                <div ui-view="content" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+
+        <div class="list" style="position: fixed; bottom: 49px; width: 100%; z-index: 99" ng-show="isShowPutIntoCart">
+            <div class="item item-thumbnail-left">
+                <img src="upload/product.png" />
+                <h3>新鲜新鲜新鲜新鲜新鲜新鲜新鲜</h3>
+                <p class="my-item-price">￥<span>{{product.price}}</span>元</p>
+            </div>
+            <div class="item row padding">
+                <div class="col"><h3>数量:</h3></div>
+                <div class="col-30 row-no-padding" style="border: 1px solid #ff0000; background: #ff0000; border-radius: 5px">
+                    <button class="button  button-small ion-plus-round button-clear button-light" ng-click="changeCount('+')"></button>
+                    <input type="text" style="display: inline; width: 50px; height: 30px; text-align: center" ng-model="count">
+                    <button class="button  button-small ion-minus-round button-clear button-light" ng-click="changeCount('-')"></button>
+                </div>
+            </div>
+            <div class="item row-no-padding">
+                <button class="button button-block button-assertive button-small">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+            </div>
+        </div>
+
+    </div>
+</ion-view>

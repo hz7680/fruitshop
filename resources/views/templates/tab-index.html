@@ -1,0 +1,48 @@
+<ion-view>
+    <div class="scroll-content has-footer index-content">
+        <ion-slide-box does-continue="true" auto-play="true" slide-interval="1000" ng-if="banners.length">
+            <ion-slide ng-repeat="item in banners">
+                <a ng-href="{{item.url}}">
+                    <img ng-src="upload/{{item.imgpath}}" class="banner-img">
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="button-bar">
+            <a class="button button-small button-light">
+                <img src="resources/assets/img/new.png" class="my-button-img">
+                <p style="margin-bottom: 0">每周新品</p>
+            </a>
+            <a class="button button-small button-light">
+                <img src="resources/assets/img/fruit.png" class="my-button-img">
+                <p style="margin-bottom: 0">新鲜果蔬</p>
+            </a>
+            <a class="button button-small button-light">
+                <img src="resources/assets/img/snacks.png" class="my-button-img">
+                <p style="margin-bottom: 0">休闲零食</p>
+            </a>
+            <a class="button button-small button-light">
+                <img src="resources/assets/img/fish.png" class="my-button-img">
+                <p style="margin-bottom: 0">海鲜肉食</p>
+            </a>
+        </div>
+        <div class="list padding" style="background: #f7f7f7;">
+            <div class="item row-no-padding item-text-wrap my-item" ng-repeat="item in products">
+                <a href=""><img ng-src="upload/{{item.imgpath}}"/></a>
+                <div class="clearfix"></div>
+                <div class="my-title-box">
+                    <a class="item-text-wrap my-item-title">{{item.title}}</a>
+                </div>
+                <p class="my-item-text">{{item.description}}</p>
+                <p class="text-center my-item-price">￥<span>{{item.price}}</span>元</p>
+                <div class="button-bar padding">
+                    <button class="button button-small button-energized">加入购物车</button>
+                    <button class="button button-small button-assertive">立即购买</button>
+                    <a ng-href="#/tab/product/{{item.id}}" class="button button-small button-positive">查看详情</a>
+                </div>
+            </div>
+        </div>
+        <div class="button-bar">
+            <button class="button button-clear" ng-click="loadMore()" ng-disabled="!canLoad" >{{loadMsg}}</button>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view style="background: #f7f7f7">
+    <div class="bar bar-header item-button-left bar-stable" style="border-bottom: 1px solid #ddd">
+        <a href="#/tab/addrList" class="button button-small ion-chevron-left button"></a>
+        <h1 class="title">地址编辑</h1>
+    </div>
+    <div class="scroll-content has-footer has-header index-content">
+        <div class="list padding-vertical">
+            <label class="item item-input item-stacked-label" style="background: #fff; margin-top: 10px">
+                <p>姓名</p>
+                <input type="text" placeholder="请输入姓名">
+            </label>
+            <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
+                <p>联系电话</p>
+                <input type="text" placeholder="请输入联系电话">
+            </label>
+            <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
+                <p>所在城市</p>
+                <input type="text" placeholder="请输入所在城市">
+            </label>
+            <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
+                <p>所在区域</p>
+                <input type="text" placeholder="请输入所在区域">
+            </label>
+            <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
+                <p>详细地址</p>
+                <input type="text" placeholder="请输入详细地址">
+            </label>
+            <div class="item item-checkbox item-checkbox-right" style="background: #fff;margin-top: 10px">
+                <label class="checkbox checkbox-assertive">
+                    <input type="checkbox">
+                </label>
+                <p>设为默认地址</p>
+            </div>
+            <div class="item button-bar">
+                <button class="button button-positive button-small" ng-if="canDel">删除</button>
+                <button class="button button-assertive button-small">保存</button>
+            </div>
+        </div>
+    </div>
+</ion-view>

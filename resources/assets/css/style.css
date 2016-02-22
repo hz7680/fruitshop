@@ -1,0 +1,26 @@
+.index-content{ overflow: scroll}
+.banner-img{width: 100%}
+.my-button-img{ width: 90%}
+.my-item{margin-bottom: 10px}
+.my-item img{ width: 100%}
+.my-title-box{ padding: 5px;}
+.my-title-box a{ font-size: 0.8rem; color: #000; font-weight: bold}
+.my-item-text{ padding: 5px; font-size: 0.7rem!important;}
+.my-item-price{ color: #df2127!important;}
+.my-item-price span{ font-size: 1.1rem;}
+
+.product-content-on{ color: #ff0000!important; border-bottom: 2px solid #ff0000!important;}
+.my-item-content{ margin-top: 10px}
+.my-item-content img{ width: 100%; display: block}
+
+
+.button-xs {
+    padding: 2px 4px 1px;
+    min-width: 22px;
+    min-height: 24px;
+    font-size: 12px;
+    line-height: 12px; }
+.button-xs .icon:before, .button-small.icon:before, .button-small.icon-left:before, .button-small.icon-right:before {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 3px; }
