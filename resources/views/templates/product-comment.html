@@ -7,4 +7,7 @@
             <p style="padding: 0 5px; font-size: 0.7rem">{{item.comment}}</p>
         </div>
     </li>
+    <li style="border-bottom: 1px solid #dedede; padding: 10px 0; overflow: auto" ng-show="comments.length<=0">
+        <p>暂无评论</p>
+    </li>
 </ul>

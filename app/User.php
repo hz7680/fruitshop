@@ -23,6 +23,8 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $table = 'users';
 
+    const PASSWORD_SALT='lkjfwnl';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +38,13 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function addresses(){
+        return $this->hasMany('App\Address');
+    }
+
+    public function carts(){
+        return $this->hasMany('App\Cart');
+    }
+
 }

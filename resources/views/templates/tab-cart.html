@@ -1,33 +1,33 @@
 <ion-view style="background:#f7f7f7">
     <div class="bar bar-header item-button-left bar-stable">
-        <a href="" class="button button-small ion-chevron-left button"></a>
+        <a href="#/tab/user" class="button button-small ion-chevron-left button"></a>
         <h1 class="title">我的购物车</h1>
     </div>
     <div class="scroll-content has-footer has-header index-content">
-        <div class="list list-borderless">
-            <div class="item item-thumbnail-left row" style="margin-bottom: 10px">
+        <div class="list list-borderless" style="padding-bottom: 20px">
+            <div class="item item-thumbnail-left row" style="margin-bottom: 10px" ng-repeat="item in carts">
                 <div class="col-10">
-                    <label class="checkbox checkbox-square" style="top:25px"><input type="checkbox"></label>
+                    <label class="checkbox checkbox-square" style="top:25px"><input type="checkbox" ng-click="select({{$index}})"></label>
                 </div>
                 <div class="item item-thumbnail-left item-text-wrap">
-                    <img src="upload/product.png" />
-                    <h3>产品产品产品产品产品产品产品产品产品产品产品</h3>
+                    <img ng-src="upload/{{item.imgpath}}" />
+                    <h3>{{item.title}}</h3>
                     <div>
-                        <p class="my-item-price">￥<span>49.80</span>元</p>
+                        <p class="my-item-price">￥<span>{{item.price}}</span>元</p>
                         <span class="row-no-padding" style="border: 1px solid #ff0000; background: #ff0000; border-radius: 5px; display: block; width: 108px">
-                            <button class="button  button-xs ion-plus-round button-clear button-light" ng-click="changeCount('+')"></button>
-                            <input type="text" style="display: inline; width: 50px; height: 24px; text-align: center" ng-model="count"/>
-                            <button class="button  button-xs ion-minus-round button-clear button-light" ng-click="changeCount('-')"></button>
+                            <button class="button  button-xs ion-plus-round button-clear button-light" ng-click="changeCount($index,'+')"></button>
+                            <input type="text" style="display: inline; width: 50px; height: 24px; text-align: center" ng-model="item.count"/>
+                            <button class="button  button-xs ion-minus-round button-clear button-light" ng-click="changeCount($index,'-')"></button>
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="position: fixed; bottom: 44px; z-index: 99">
             <div class="col" style="background: #4a4a4a; line-height: 44px; text-align: center; color: #fff">
-                合计:&nbsp;&nbsp;<span style="color: #ff0000; font-size: 1.2rem">100</span>&nbsp;&nbsp;元
+                合计:&nbsp;&nbsp;<span style="color: #ff0000; font-size: 1.2rem">{{totalPrice}}</span>&nbsp;&nbsp;元
             </div>
-            <button class="col button button-assertive" style="border-radius: 0" >确&nbsp;&nbsp;定</button>
+            <button class="col button button-assertive" style="border-radius: 0" ng-click="checkout()" ng-disabled="selectedCart.length<=0">确&nbsp;&nbsp;定</button>
         </div>
     </div>
 </ion-view>

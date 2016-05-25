@@ -7,31 +7,34 @@
         <div class="list padding-vertical">
             <label class="item" style="background: #fff; margin-top: 10px">
                 <p>登录名</p>
-                <p>sdfsd</p>
+                <p>{{user.username}}</p>
             </label>
-            <label class="item" style="background: #fff; margin-top: 10px">
-                <p>性别</p>
-                <div class="row row-no-padding">
-                    <label for="male" class="col">
-                        男
-                        <input id="male" type="radio" name="sex">
-                    </label>
-                    <label for="female" class="col">
-                        女
-                        <input id="female" type="radio" name="sex">
-                    </label>
-                </div>
-            </label>
+            <!--<label class="item" style="background: #fff; margin-top: 10px">-->
+                <!--<p>性别</p>-->
+                <!--<div class="row row-no-padding">-->
+                    <!--<label for="male" class="col">-->
+                        <!--男-->
+                        <!--<input id="male" type="radio" name="sex">-->
+                    <!--</label>-->
+                    <!--<label for="female" class="col">-->
+                        <!--女-->
+                        <!--<input id="female" type="radio" name="sex">-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</label>-->
             <label class="item item-input item-stacked-label" style="background: #fff; margin-top: 10px">
                 <p>联系电话</p>
-                <input type="text" placeholder="请输入联系电话">
+                <input type="text" placeholder="请输入联系电话" ng-model="user.tel">
             </label>
             <label class="item item-input item-stacked-label" style="background: #fff; margin-top: 10px">
                 <p>邮箱</p>
-                <input type="text" placeholder="请输入邮箱">
+                <input type="text" placeholder="请输入邮箱" ng-model="user.email">
             </label>
+            <div class="item item-assertive" ng-show="errmsg">
+                {{errmsg}}
+            </div>
             <div class="item button-bar item-borderless item-stable" style="margin-top: 20px">
-                <button class="button button-small button-assertive">保存</button>
+                <button class="button button-small button-assertive" ng-click="saveEdit()">保存</button>
             </div>
         </div>
     </div>

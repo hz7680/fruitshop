@@ -5,56 +5,34 @@
     </div>
     <div class="scroll-content has-footer has-header index-content">
         <div class="button-bar">
-            <button class="button button-small " ng-class="{'button-assertive':orderType==0}">全部订单</button>
-            <button class="button button-small " ng-class="{'button-assertive':orderType==1}">待付款</button>
-            <button class="button button-small " ng-class="{'button-assertive':orderType==2}">待收货</button>
+            <button class="button button-small row-no-padding" ng-class="{'button-assertive':orderType==0}" ng-click="select(0)">全部订单</button>
+            <button class="button button-small " ng-class="{'button-assertive':orderType==1}" ng-click="select(1)">待付款</button>
+            <button class="button button-small " ng-class="{'button-assertive':orderType==2}" ng-click="select(2)">待收货</button>
         </div>
         <div class="list row-no-padding padding-horizontal" style="background: #f7f7f7">
-            <div class="item row-no-padding card">
-                <p style="font-size: 0.8rem; padding: 10px">编号:32113312<span style="float: right; color: #ff0000">待付款</span></p>
+            <div class="item row-no-padding card" ng-repeat="order in orderList">
+                <p style="font-size: 0.8rem; padding: 10px"><a href="#/tab/order/{{order.id}}">编号:{{order.ordernumber}}</a>
+                    <span style="float: right; color: #ff0000" ng-show="order.iscanceled==1">已取消</span>
+                    <span style="float: right; color: #ff0000" ng-show="order.iscanceled==0&&order.ispayed==0">待付款</span>
+                    <span style="float: right; color: #ff0000" ng-show="order.iscanceled==0&&order.ispayed==1&&order.isreceived==0">待收货</span>
+                    <span style="float: right; color: #ff0000" ng-show="order.iscanceled==0&&order.ispayed==1&&order.isreceived==1">交易完成</span>
+                </p>
                 <div class="list row-no-padding padding-horizontal" style="margin-bottom: 10px">
-                    <div class="item item-thumbnail-left item-text-wrap" style="background: #f7f7f7">
-                        <img src="upload/product.png">
-                        <h6>新鲜冬草莓双流巧克力草莓新鲜冬草莓双流巧克力草莓</h6>
-                        <p class="text-center my-item-price" style="font-size: 0.8rem; text-align: left; margin-top: 10px">￥<span>49.8</span>元</p>
-                        <p style="font-size: 0.7rem">数量:x1</p>
-                    </div>
-                    <div class="item item-thumbnail-left item-text-wrap" style="background: #f7f7f7">
-                        <img src="upload/product.png">
-                        <h6>新鲜冬草莓双流巧克力草莓新鲜冬草莓双流巧克力草莓</h6>
-                        <p class="text-center my-item-price" style="font-size: 0.8rem; text-align: left; margin-top: 10px">￥<span>49.8</span>元</p>
-                        <p style="font-size: 0.7rem">数量:x1</p>
+                    <div class="item item-thumbnail-left item-text-wrap " style="background: #f7f7f7" ng-repeat="item in order.items">
+                        <img ng-src="upload/{{item.product.imgpath}}">
+                        <h6>{{item.product.title}}</h6>
+                        <p class="text-center my-item-price" style="font-size: 0.8rem; text-align: left; margin-top: 10px">￥<span>{{item.price}}</span>元</p>
+                        <p style="font-size: 0.7rem">数量:x{{item.count}}</p>
+                        <a ng-href="#/tab/comment/{{item.id}}/{{item.product_id}}" class="button button-xs button-assertive button-outline" style="font-size: 0.6rem; position: absolute; right: 5px; bottom: 10px" ng-show="order.iscanceled==0&&order.ispayed==1&&order.isreceived==1&&item.iscommented==0">评价</a>
                     </div>
                     <div class="item row-no-padding">
-                        <p style="font-size: 0.8rem; padding: 5px 0;">总额: 99.6 元</p>
+                        <p style="font-size: 0.8rem; padding: 5px 0;">总额: {{order.totalprice}} 元</p>
                     </div>
                     <div class="item row-no-padding">
-                        <button class="button button-positive button-xs" style="float: right; margin-top: 10px">取消订单</button>
-                        <button class="button button-assertive button-xs" style="float: right; margin-top: 10px; margin-right: 10px">去付款</button>
-                    </div>
-                </div>
-            </div>
-            <div class="item row-no-padding card">
-                <p style="font-size: 0.8rem; padding: 10px">编号:32113312<span style="float: right; color: #ff0000">待付款</span></p>
-                <div class="list row-no-padding padding-horizontal" style="margin-bottom: 10px">
-                    <div class="item item-thumbnail-left item-text-wrap" style="background: #f7f7f7">
-                        <img src="upload/product.png">
-                        <h6>新鲜冬草莓双流巧克力草莓新鲜冬草莓双流巧克力草莓</h6>
-                        <p class="text-center my-item-price" style="font-size: 0.8rem; text-align: left; margin-top: 10px">￥<span>49.8</span>元</p>
-                        <p style="font-size: 0.7rem">数量:x1</p>
-                    </div>
-                    <div class="item item-thumbnail-left item-text-wrap" style="background: #f7f7f7">
-                        <img src="upload/product.png">
-                        <h6>新鲜冬草莓双流巧克力草莓新鲜冬草莓双流巧克力草莓</h6>
-                        <p class="text-center my-item-price" style="font-size: 0.8rem; text-align: left; margin-top: 10px">￥<span>49.8</span>元</p>
-                        <p style="font-size: 0.7rem">数量:x1</p>
-                    </div>
-                    <div class="item row-no-padding">
-                        <p style="font-size: 0.8rem; padding: 5px 0;">总额: 99.6 元</p>
-                    </div>
-                    <div class="item row-no-padding">
-                        <button class="button button-positive button-xs" style="float: right; margin-top: 10px">取消订单</button>
-                        <button class="button button-assertive button-xs" style="float: right; margin-top: 10px; margin-right: 10px">去付款</button>
+                        <button class="button button-positive button-xs" style="float: right; margin-top: 10px"  ng-show="order.ispayed==0&&order.iscanceled==0" ng-click="cancelOrder({{order.id}})">取消订单</button>
+                        <button class="button button-assertive button-xs" style="float: right; margin-top: 10px; margin-right: 10px" ng-show="order.ispayed==0&&order.iscanceled==0">去付款</button>
+                        <button class="button button-assertive button-xs" style="float: right; margin-top: 10px; margin-right: 10px" ng-show="order.isreceived==0&&order.ispayed==1&&order.iscanceled==0" ng-click="confirmReceived({{order.id}})">确认收货</button>
+
                     </div>
                 </div>
             </div>

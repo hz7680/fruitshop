@@ -7,33 +7,38 @@
         <div class="list padding-vertical">
             <label class="item item-input item-stacked-label" style="background: #fff; margin-top: 10px">
                 <p>姓名</p>
-                <input type="text" placeholder="请输入姓名">
+                <input type="text" placeholder="请输入姓名" ng-model="address.name">
             </label>
             <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
                 <p>联系电话</p>
-                <input type="text" placeholder="请输入联系电话">
+                <input type="text" placeholder="请输入联系电话" ng-model="address.tel">
+            </label>
+            <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
+                <p>所在省份</p>
+                <input type="text" placeholder="请输入所在省份" ng-model="address.province">
             </label>
             <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
                 <p>所在城市</p>
-                <input type="text" placeholder="请输入所在城市">
+                <input type="text" placeholder="请输入所在城市" ng-model="address.city">
             </label>
             <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
                 <p>所在区域</p>
-                <input type="text" placeholder="请输入所在区域">
+                <input type="text" placeholder="请输入所在区域" ng-model="address.area">
             </label>
             <label class="item item-input item-stacked-label" style="background: #fff;margin-top: 10px">
                 <p>详细地址</p>
-                <input type="text" placeholder="请输入详细地址">
+                <input type="text" placeholder="请输入详细地址" ng-model="address.address">
             </label>
             <div class="item item-checkbox item-checkbox-right" style="background: #fff;margin-top: 10px">
                 <label class="checkbox checkbox-assertive">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="address.isdefault" ng-checked="address.isdefault==1">
                 </label>
                 <p>设为默认地址</p>
             </div>
+            <div class="item item-assertive" ng-show="errmsg">{{errmsg}}</div>
             <div class="item button-bar">
-                <button class="button button-positive button-small" ng-if="canDel">删除</button>
-                <button class="button button-assertive button-small">保存</button>
+                <button class="button button-positive button-small" ng-if="canDel" ng-click="del('{{address.id}}')">删除</button>
+                <button class="button button-assertive button-small" ng-click="save()">保存</button>
             </div>
         </div>
     </div>

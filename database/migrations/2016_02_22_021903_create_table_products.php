@@ -20,6 +20,7 @@ class CreateTableProducts extends Migration
             $table->string('description');
             $table->decimal('price');
             $table->text('body');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

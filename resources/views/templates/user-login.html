@@ -7,15 +7,18 @@
         <div class="list padding-vertical" style="margin-top: 20px">
             <label class="item item-input">
                 <span class="input-label text-right "><i class="icon ion-ios-person-outline"></i>&nbsp;&nbsp;&nbsp;&nbsp;账号:</span>
-                <input type="text" placeholder="请输入用户名">
+                <input type="text" placeholder="请输入用户名" ng-model="user.username">
             </label>
             <label class="item item-input">
                 <span class="input-label text-right"><i class="icon ion-ios-locked-outline"></i>&nbsp;&nbsp;&nbsp;&nbsp;密码:</span>
-                <input type="password" placeholder="请输入密码">
+                <input type="password" placeholder="请输入密码" ng-model="user.password">
             </label>
         </div>
+        <div class="item item-assertive" ng-show="errmsg">
+            {{errmsg}}
+        </div>
         <div class="item item-stable item-borderless">
-            <button class="button button-assertive button-block button-small">登录</button>
+            <button class="button button-assertive button-block button-small" ng-click="login()">登录</button>
             <p class="text-right"><a href="#/tab/index" style="color: #999; text-decoration: none">忘记密码?</a></p>
         </div>
         <div class="item item-input-inset item-borderless item-stable">

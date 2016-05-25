@@ -88,6 +88,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
+            .state('tab.confirmOrder',{
+                url:'/confirmOrder',
+                views:{
+                    'tab-cart':{
+                        templateUrl:'resources/views/templates/cart-confirmOrder.html',
+                        controller:'ConfirmOrderController'
+                    }
+                }
+            })
             .state('tab.user',{
                 url:'/user',
                 views:{
@@ -121,6 +130,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     'tab-user':{
                         templateUrl:'resources/views/templates/user-orderList.html',
                         controller:'OrderListController'
+                    }
+                }
+            })
+            .state('tab.order',{
+                url:'/order/:OrderId',
+                views:{
+                    'tab-user':{
+                        templateUrl:'resources/views/templates/user-order.html',
+                        controller:'OrderController'
+                    }
+                }
+            })
+            .state('tab.comment',{
+                url:'/comment/:OrderItemId/:ProductId',
+                views:{
+                    'tab-user':{
+                        templateUrl:'resources/views/templates/user-comment.html',
+                        controller:'CommentController'
                     }
                 }
             })
